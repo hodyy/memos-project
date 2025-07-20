@@ -1,4 +1,19 @@
-export const contentBox1Data = {
+export type FeaturesDataType = {
+  firstArticle: {
+    header: string;
+    text: string;
+  };
+  secondArticle: {
+    header: string;
+    text: string;
+  };
+  thirdArticle: {
+    header: string;
+    text: string;
+  };
+};
+
+export const itemData: FeaturesDataType = {
   firstArticle: {
     header: 'We Create Something New',
     text: 'We have created a new product that will help designers, developers and companies create websites for their startups quickly and easily.',
@@ -12,22 +27,16 @@ export const contentBox1Data = {
     text: 'Samples will show you the feeling on how to play around using the components.',
   },
 };
-export const contentBox2Data = {
-  header: 'Text 2',
-  text: ' Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-};
 
-export const contentBox3Data = {
-  header: 'Text 3',
-  text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.',
-};
+const itemData2 = { ...itemData, firstArticle: { ...itemData.firstArticle, header: 'TEXT2' } };
+const itemData3 = { ...itemData, firstArticle: { ...itemData.firstArticle, header: 'TEXT3' } };
+const itemData4 = { ...itemData, firstArticle: { ...itemData.firstArticle, header: 'TEXT4' } };
+const itemData5 = { ...itemData, firstArticle: { ...itemData.firstArticle, header: 'TEXT5' } };
 
-export const contentBox4Data = {
-  header: 'Text 4',
-  text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.',
-};
-
-export const contentBox5Data = {
-  header: 'Text 5',
-  text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.',
-};
+export const featuresData: FeaturesDataType[] = [
+  itemData,
+  itemData2,
+  itemData3,
+  itemData4,
+  itemData5,
+];

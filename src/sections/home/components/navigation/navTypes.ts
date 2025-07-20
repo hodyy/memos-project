@@ -1,1 +1,1 @@
-export type NavItems = 'Home' | 'Features' | 'Pricing' | 'Blog' | 'Network' | 'Be';
+export type NavItems = 'Home' | 'Features' | 'Pricing' | 'Blog' | 'Ball' | 'Be';

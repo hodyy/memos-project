@@ -4,9 +4,9 @@ const { header, text, phone, email, address } = contactData;
 </script>
 
 <template>
-  <div class="left-content">
+  <div class="wrapper">
     <h3>{{ header }}</h3>
-    <p>
+    <p class="paragraphStyle500">
       {{ text }}
     </p>
     <ul class="contact-list">
@@ -33,11 +33,10 @@ const { header, text, phone, email, address } = contactData;
 </template>
 
 <style scoped>
-.left-content {
+.wrapper {
   width: 410px;
 }
 h3 {
-  all: unset;
   font-weight: 700;
   font-size: 42px;
   line-height: 52px;
@@ -46,10 +45,6 @@ h3 {
 }
 p {
   margin: 28px 0 0 0;
-  font-weight: 500;
-  font-size: 22px;
-  line-height: 32px;
-  letter-spacing: 0;
 }
 .contact-list {
   display: flex;
@@ -66,7 +61,7 @@ li {
   font-weight: 400;
   font-size: 16px;
   line-height: 26px;
-  letter-spacing: 0px;
+  letter-spacing: 0;
   margin-bottom: 10px;
 }
 </style>

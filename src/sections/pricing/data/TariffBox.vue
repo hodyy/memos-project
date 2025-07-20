@@ -9,7 +9,7 @@ const props = defineProps<{ tariff: Tariff }>();
   <div class="box-wrapper">
     <div class="title-price-wrapper">
       <h2>{{ props.tariff.name }}</h2>
-      <div class="price">{{ props.tariff.price }}</div>
+      <div class="price">{{ props.tariff.price }}<span class="dollar">$</span></div>
     </div>
     <TariffFeatures :tariff="tariff" />
     <div class="button-wrapper">
@@ -27,17 +27,16 @@ const props = defineProps<{ tariff: Tariff }>();
 
 <style scoped>
 .box-wrapper {
-  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   justify-content: center;
   padding: 40px;
-  width: 370px;
+  max-width: 370px;
+  width: 100%;
   height: 730px;
   border: 2px solid rgba(255, 255, 255, 0.2);
   border-radius: 10px;
 }
-
 .start-button {
   width: 230px;
   height: 60px;
@@ -49,9 +48,9 @@ const props = defineProps<{ tariff: Tariff }>();
   font-weight: 500;
   font-size: 20px;
   line-height: 26px;
-  letter-spacing: 0px;
+  letter-spacing: 0;
+  text-align: center;
 }
-
 h2 {
   margin: 0;
   font-weight: 500;
@@ -60,6 +59,9 @@ h2 {
   letter-spacing: 0;
 }
 .price {
+  position: relative;
+  align-self: flex-start;
+  display: flex;
   font-weight: 700;
   font-size: 58px;
   line-height: 70px;
@@ -75,5 +77,13 @@ h2 {
   display: flex;
   width: 100%;
   justify-content: center;
+}
+.dollar {
+  position: absolute;
+  top: 12px;
+  right: -15px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1;
 }
 </style>

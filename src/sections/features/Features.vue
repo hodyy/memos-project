@@ -1,22 +1,23 @@
 <script setup lang="ts">
-import FeaturesSlider from '@/sections/features/components/FeaturesSlider.vue';
+import VerticalSlider from '@/sections/features/components/VerticalSlider.vue';
 </script>
 
 <template>
   <section id="features-section">
-    <div class="features-content-wrapper">
-      <img
-        class="ntb-image"
-        src="../../assets/images/notebook.png"
-        alt="ntb-img"
-      />
-      <features-slider />
+    <img
+      class="ntb-image"
+      src="@/assets/images/others/notebook.png"
+      alt="ntb-img"
+    />
+    <div class="content-wrapper">
+      <vertical-slider />
     </div>
   </section>
 </template>
 
 <style scoped>
 #features-section {
+  position: relative;
   width: 100vw;
   height: 736px;
   background-image: url('@/assets/images/background/bg_features.png');
@@ -24,15 +25,35 @@ import FeaturesSlider from '@/sections/features/components/FeaturesSlider.vue';
   background-size: cover;
   overflow: hidden;
 }
-.features-content-wrapper {
+.content-wrapper {
   padding-top: 100px;
-  display: flex;
   width: 100%;
-  height: 100%;
+  display: flex;
+  justify-content: center;
+  padding-left: 400px;
 }
 .ntb-image {
-  height: 536px;
-  width: auto;
-  margin-right: 34px;
+  position: absolute;
+  top: 100px;
+  max-width: 482px;
+  width: 100%;
+  height: auto;
+}
+@media (min-width: 1650px) {
+  .content-wrapper {
+    padding-top: 100px;
+    display: flex;
+    justify-content: normal;
+    gap: 300px;
+  }
+}
+@media (max-width: 1100px) {
+  .ntb-image {
+    display: none;
+  }
+  .content-wrapper {
+    justify-content: center;
+    padding-left: 0;
+  }
 }
 </style>

@@ -1,10 +1,12 @@
 <script setup lang="ts">
 import { defineProps } from 'vue';
+
 const props = defineProps<{
   dotCount: number;
   activeIndex: number;
   styles?: Record<string, string>;
 }>();
+
 const emit = defineEmits<{
   (e: 'update:active-index', newIndex: number): void;
 }>();
@@ -52,8 +54,5 @@ const onclick = (index: number) => {
   justify-content: center;
   align-items: center;
   gap: 9px;
-}
-button {
-  all: unset;
 }
 </style>

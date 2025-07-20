@@ -21,7 +21,7 @@ const blog: Item = {
   name: 'Blog',
 };
 const network: Item = {
-  name: 'Network',
+  name: 'Ball',
   icon: faDribbble,
 };
 const be: Item = {

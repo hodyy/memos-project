@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { defineProps } from 'vue';
+
 import { features, type Tariff } from '@/sections/pricing/data/pricingData.ts';
 const props = defineProps<{ tariff: Tariff }>();
 </script>
@@ -12,6 +13,7 @@ const props = defineProps<{ tariff: Tariff }>();
       :key="index"
     >
       <img
+        class="check-icon"
         v-if="props.tariff.activeFeatures.includes(item.id)"
         src="@/assets/images/icons/check-icon.svg"
         alt="check-icon"
@@ -38,7 +40,6 @@ const props = defineProps<{ tariff: Tariff }>();
 .empty-space {
   width: 12px;
 }
-
 .features {
   display: flex;
   flex-direction: column;
@@ -57,5 +58,8 @@ h2 {
   font-size: 16px;
   line-height: 26px;
   letter-spacing: 0;
+}
+.check-icon {
+  width: 12px;
 }
 </style>

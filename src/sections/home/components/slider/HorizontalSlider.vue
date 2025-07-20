@@ -1,33 +1,44 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { computed, ref } from 'vue';
 import sliderData from '@/sections/home/components/slider/data.ts';
 import SliderItem from '@/sections/home/components/slider/SliderItem.vue';
 import Dots from '@/global/components/Dots.vue';
-const activeBox = ref<number>(1);
+import { useWindowResize } from '@/global/composable/useWindowResize.ts';
+
+const activeItem = ref<number>(1);
+const itemsRef = ref<HTMLElement | null>(null);
+const itemWidth = ref(0);
 
 const moveLeft = () => {
   if (isFirstItem()) return;
-  activeBox.value -= 1;
+  activeItem.value -= 1;
 };
-const itemWidth = 736;
+
 const moveRight = () => {
-  if (activeBox.value >= sliderData.length) {
+  if (activeItem.value >= sliderData.length) {
     return;
   }
-  activeBox.value += 1;
+  activeItem.value += 1;
 };
 
 const isFirstItem = () => {
-  return activeBox.value === 1;
+  return activeItem.value === 1;
 };
 
 const isLastItem = () => {
-  return activeBox.value === sliderData.length;
+  return activeItem.value === sliderData.length;
 };
 
-const calculateTranslate = () => {
-  return activeBox.value * itemWidth - itemWidth;
+const translateValue = computed(() => activeItem.value * itemWidth.value - itemWidth.value);
+
+const getSize = () => {
+  if (itemsRef.value) {
+    const { width } = itemsRef.value.getBoundingClientRect();
+    itemWidth.value = width / sliderData.length;
+  }
 };
+
+useWindowResize(getSize);
 </script>
 
 <template>
@@ -39,10 +50,11 @@ const calculateTranslate = () => {
         alt="left-arrow"
       />
     </button>
-    <div class="main-wrapper">
+    <div class="slider-viewport">
       <div
-        class="movable-wrapper"
-        :style="{ transform: `translateX(-${calculateTranslate()}px)` }"
+        class="items-wrapper"
+        ref="itemsRef"
+        :style="{ transform: `translateX(-${translateValue}px` }"
       >
         <SliderItem
           v-for="(item, index) in sliderData"
@@ -61,7 +73,7 @@ const calculateTranslate = () => {
   </div>
   <Dots
     :dot-count="sliderData.length"
-    v-model:active-index="activeBox"
+    v-model:active-index="activeItem"
   />
   <button class="create-acc-btn">Create an Account</button>
 </template>
@@ -69,33 +81,27 @@ const calculateTranslate = () => {
 <style scoped>
 .slider-wrapper {
   display: flex;
+  justify-content: center;
   align-items: center;
   margin-top: 142px;
   gap: 206px;
   margin-bottom: 48px;
+  width: 100%;
 }
-
-.main-wrapper {
+.slider-viewport {
   display: flex;
   width: 736px;
   height: 260px;
   overflow: hidden;
 }
-
-.movable-wrapper {
+.items-wrapper {
   display: flex;
   transition: transform 0.5s;
 }
-
-.slider-wrapper button {
-  all: unset;
-}
-
 .disabled {
   opacity: 0.3;
 }
 .create-acc-btn {
-  all: unset;
   width: 230px;
   height: 60px;
   background-color: #482be7;
@@ -106,5 +112,26 @@ const calculateTranslate = () => {
   text-align: center;
   border-radius: 100px;
   margin-top: 58px;
+}
+@media (max-width: 1200px) {
+  .slider-wrapper {
+    gap: 20px;
+  }
+}
+@media (max-width: 800px) {
+  .slider-wrapper button {
+    display: none;
+  }
+  .slider-viewport {
+    width: 400px;
+  }
+}
+@media (max-width: 470px) {
+  .slider-viewport {
+    width: 300px;
+  }
+  .create-acc-btn {
+    width: 200px;
+  }
 }
 </style>

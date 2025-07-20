@@ -2,11 +2,13 @@
 import TariffBox from '@/sections/pricing/data/TariffBox.vue';
 import { tariffs } from '@/sections/pricing/data/pricingData.ts';
 import { pricingData } from '@/sections/pricing/data/pricingData.ts';
+
 const { header, text } = pricingData;
 </script>
 
 <template>
   <section id="pricing-section">
+    <div class="wrapper"></div>
     <div class="title-box">
       <h2>{{ header }}</h2>
       <p>
@@ -26,11 +28,13 @@ const { header, text } = pricingData;
 <style scoped>
 #pricing-section {
   display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100vw;
-  height: 1130px;
+  min-height: 1130px;
+  height: 100%;
   overflow: hidden;
   gap: 54px;
 }
@@ -39,11 +43,12 @@ const { header, text } = pricingData;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 586px;
-  height: 146px;
+  max-width: 586px;
+  width: 100%;
+  min-height: 146px;
+  height: 100%;
   gap: 30px;
 }
-
 h2 {
   margin: 0;
   font-weight: 700;
@@ -51,7 +56,6 @@ h2 {
   line-height: 52px;
   letter-spacing: -0.4px;
 }
-
 p {
   margin: 0;
   font-weight: 500;
@@ -62,6 +66,10 @@ p {
 }
 .boxes-wrapper {
   display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
   gap: 30px;
 }
 </style>

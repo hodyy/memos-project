@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import Navigation from '@/sections/home/components/navigation/Navigation.vue';
-import Slider from '@/sections/home/components/slider/Slider.vue';
+import HorizontalSlider from '@/sections/home/components/slider/HorizontalSlider.vue';
 </script>
 
 <template>
   <section id="home-section">
     <Navigation />
-    <Slider />
+    <HorizontalSlider />
   </section>
 </template>
 
@@ -22,5 +22,4 @@ import Slider from '@/sections/home/components/slider/Slider.vue';
   background-position: center;
   background-size: cover;
 }
-
 </style>

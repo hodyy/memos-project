@@ -1,26 +1,28 @@
 <script setup lang="ts">
-import LeftContent from '@/sections/contact/components/LeftContent.vue';
-import RightContent from '@/sections/contact/components/RightContent.vue';
+import ContactBox from '@/sections/contact/components/ContactBox.vue';
+import Form from '@/sections/contact/components/form/Form.vue';
 </script>
 
 <template>
   <section id="contact-section">
-    <LeftContent />
-    <RightContent />
+    <ContactBox />
+    <Form />
   </section>
 </template>
 
 <style scoped>
 #contact-section {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   width: 100vw;
-  height: 770px;
+  min-height: 770px;
   background-image: url('@/assets/images/background/bg_contact.png');
   background-color: #2f1893;
   background-position: center;
   background-size: cover;
   gap: 89px;
+  padding: 20px;
 }
 </style>
