@@ -43,6 +43,7 @@ const { firstArticle, secondArticle, thirdArticle } = props.data;
   height: 100%;
   flex-direction: column;
   gap: 67px;
+  justify-content: center;
 }
 .bottom-articles-wrapper {
   display: flex;

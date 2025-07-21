@@ -105,12 +105,13 @@ li {
   line-height: 26px;
   letter-spacing: 0;
 }
-@media (max-width: 550px) {
+@media (max-width: 740px) {
   .nav-section {
     flex-direction: column;
   }
   .medias,
   ul {
+    justify-content: center;
     gap: 10px;
   }
   .info-section {

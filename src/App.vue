@@ -14,8 +14,8 @@ import Footer from '@/sections/footer/Footer.vue';
     <CallToAction />
     <Contact />
     <Pricing />
-    <Footer />
   </main>
+  <Footer />
 </template>
 
 <style scoped></style>
