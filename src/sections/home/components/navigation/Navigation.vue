@@ -3,7 +3,7 @@ import { ref } from 'vue';
 import type { NavItems } from '@/sections/home/components/navigation/navTypes.ts';
 import { navigationItems } from '@/sections/home/components/navigation/data.ts';
 
-const activeItem = ref<string>('home');
+const activeItem = ref<NavItems>('Home');
 
 const setActiveItem = (item: NavItems) => {
   activeItem.value = item;
